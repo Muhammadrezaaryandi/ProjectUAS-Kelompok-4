@@ -40,3 +40,23 @@ int main() {
   char line[MAX_LINE];
   char words[MAX_WORDS][MAX_WORD];
   int count = 0;
+  char title[200];
+
+  //Membuka file lirik untuk dibaca
+  fin = fopen("lirik.txt", "r");
+  if (!fin){
+      printf("File lirik.txt tidak ditemukan!\n");
+      return 1;
+  }
+
+  //Membuat file output untuk menulis kosa-kata
+  fout = fopen("kosa-kata.txt", "w");
+  if (!fout) {
+      printf("Gagal membuat file kosa-kata.txt!\n");
+      fclose(fin);
+      return 1;
+  }
+
+  //Membaca baris pertama sebagai judul lagu nantinya
+  fgets(title, sizeof(title), fin);
+  fprintf(fout, "%s", title);
