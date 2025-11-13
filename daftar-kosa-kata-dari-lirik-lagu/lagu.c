@@ -80,3 +80,23 @@ int main() {
                 // Jika kata belum pernah muncul, maka disimpan
                 if (!isDuplicate(words, count, token)) {
                     strcpy(words[count], token);
+                    count++;
+                }
+            }
+            // Ambil kata berikutnya
+            token = strtok(NULL, " ");
+        }
+    }
+
+    // Tulis kata ke file output
+    for(int i = 0; i < count; i++) {
+      fprintf(fout, "%s=\n", words[i]);
+    }
+
+    // Tutup file input dan output
+    fclose(fin);
+    fclose(fout);
+
+    printf("Daftar kosa kata berhasil dibuat di file 'kosa-kata.txt'\n");
+    return 0;
+}
