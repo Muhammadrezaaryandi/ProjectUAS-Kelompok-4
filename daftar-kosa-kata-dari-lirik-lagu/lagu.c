@@ -60,3 +60,23 @@ int main() {
   //Membaca baris pertama sebagai judul lagu nantinya
   fgets(title, sizeof(title), fin);
   fprintf(fout, "%s", title);
+  
+    // Membaca lirik baris demi baris
+    while (fgets(line, sizeof(line), fin)) {
+
+        // Memanggil fungsi untuk mengubah lirik jadi huruf kecil
+        toLowerCase(line);
+
+        // Memanggil fungsi untuk membersihkan karakter yang tidak perlu
+        cleanText(line);
+
+        // Mengambil kata satu-per-satu
+        char *token = strtok(line, " ");
+        while (token != NULL) {
+
+            // Lewati token kosong atau hanya karakter (')
+            if (strlen(token) > 0 && !(strlen(token) == 1 && token[0] == '\'')) {
+
+                // Jika kata belum pernah muncul, maka disimpan
+                if (!isDuplicate(words, count, token)) {
+                    strcpy(words[count], token);
