@@ -18,4 +18,25 @@ void toLowerCase(char *str)
 void cleanText(char *str)
 { int j = 0;
   for(int i = 0; str[i] != '\0'; i++) {
-     if(isalpha(str[i]) || str[i] == ' ' || str[i] == '\'') {
+     if(isalpha(str[i]) || str[i] == ' ' || str[i] == '\'') {  
+        str[j++] = str[i];
+     }
+  }
+  str[j] = '\0';
+}
+
+//Mengecek apakah kata sudah pernah ada sebelumnya
+int isDuplicate(char words[][MAX_WORD], Int count, char *word) {
+  for(int i = 0; i < count; i++) {
+     if(strcmp(words[i], word) == 0)
+        return 1;
+  }
+  return 0;
+}
+
+int main() {
+  //Deklarasi variabel untuk file input dan output, buffer dan baris, daftar kata, penghitung kata unik, dan judul lagu
+  FILE *fin, *fout;
+  char line[MAX_LINE];
+  char words[MAX_WORDS][MAX_WORD];
+  int count = 0;
