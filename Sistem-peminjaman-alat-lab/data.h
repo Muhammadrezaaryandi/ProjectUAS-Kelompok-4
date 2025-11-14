@@ -36,3 +36,10 @@ void garis(void);
 int login(const char *username, const char *password, char *role);
 
 //admin.c
+void menu_admin();
+void tambah_alat();
+void tampilkan_alat();
+void edit_alat();
+void hapus_alat();
+
+// user.c
