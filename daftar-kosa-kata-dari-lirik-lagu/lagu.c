@@ -26,7 +26,7 @@ void cleanText(char *str)
 }
 
 //Mengecek apakah kata sudah pernah ada sebelumnya
-int isDuplicate(char words[][MAX_WORD], Int count, char *word) {
+int isDuplicate(char words[][MAX_WORD], int count, char *word) {
   for(int i = 0; i < count; i++) {
      if(strcmp(words[i], word) == 0)
         return 1;
