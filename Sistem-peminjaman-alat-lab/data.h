@@ -29,3 +29,10 @@ typedef struct {
     char namaAlat[50];
     unsigned int jumlahPinjam;
 } Peminjaman;
+
+//DEKLARASI FUNGSI
+void garis(void);
+//login.c
+int login(const char *username, const char *password, char *role);
+
+//admin.c
