@@ -43,3 +43,9 @@ void edit_alat();
 void hapus_alat();
 
 // user.c
+void menu_user(const char *username);
+void lihat_alat();
+void pinjam_alat(const char *username);
+void lihat_pinjaman(const char *username);
+void kembalikan_alat(const char *username);
+#endif
