@@ -15,3 +15,20 @@ void pinjam_alat(const char *username) {
 
     // Mengecek apakah semua file berhasil dibuka
     if (!fp || !temp || !pinjam) {
+        printf("Tidak dapat membuka file!\n");
+        return;
+    }
+
+    // Mendeklarasi variabel untuk menyimpan ID alat dan jumlah alat
+    unsigned int id, jumlah;
+    Alat alat;
+    // Variabel found akan digunakan untuk mesngecek apakah ID alat ditemukan atau tidak
+    int found = 0;
+
+    // Meminta input ID alat dan jumlah alat yang ingin dipinjam user
+    printf("Masukkan ID alat: ");
+    scanf("%u", &id);
+    printf("Jumlah yang dipinjam: ");
+    scanf("%u", &jumlah);
+
+    // Membaca isi file alat baris per baris
