@@ -66,3 +66,20 @@ void pinjam_alat(const char *username) {
 void lihat_pinjaman(const char *username) {
     // Membuka file peminjaman.txt untuk dibaca
     FILE *fp = fopen("Peminjaman.txt", "r");
+    if (!fp) {
+        printf("Belum ada data peminjaman.\n");
+        return;
+    }
+
+    peminjaman p;
+    printf("\n=== ALAT YANG DIPINJAM (%s) ===\n",  username);
+
+    // Membaca riwayat peminjaman baris demi baris
+    while (fscanf(fp, "%s %u %s %u", p.username, &p.idAlat, p.namaAlat, &p.jumlahPinjam) == 4) {
+        // Menampilkan data yang hanya dimiliki user yang sama
+        if (strcmp(p.username, username) == 0)
+            printf("ID: %u | Nama: %s | Jumlah: %u\n", p.idAlat, p.namaAlat, p.jumlahPinjam);
+    }
+
+    fclose(fp);
+}
