@@ -83,3 +83,20 @@ void edit_alat()
         return;
     }
     
+    unsigned int target;
+    printf("Masukkan ID alat: ");
+    scanf("%u", &target);
+
+    Alat alat;
+    int found = 0;
+    
+   while (fscanf(fp, "%u,%[^,],%[^,],%[^,],%u,%u\n", 
+    &alat.id, alat.nama, alat.merek, alat.model, &alat.tahun, &alat.jumlah) == 6) 
+    { 
+        if (alat.id == target) 
+        {
+            printf("Masukkan data untuk alat baru %u:\n", target);
+            getchar();
+            printf("Nama: "); scanf(" %[^\n]", alat.nama);
+            printf("Merek: "); scanf(" %[^\n]", alat.merek);
+            printf("Model: "); scanf(" %[^\n]", alat.model);
