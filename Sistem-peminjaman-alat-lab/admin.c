@@ -49,3 +49,20 @@ void tambah_alat()
         return;
     }
     //Variabel struct ini dipakai untuk menampung sementara semua data alat yang user input sebelum disimpan ke fil
+    Alat alat;
+    printf("Masukkan ID alat: "); 
+    scanf("%u", &alat.id); 
+    getchar();
+    printf("Nama alat: "); scanf(" %[^\n]", alat.nama);
+    printf("Merek: "); scanf(" %[^\n]", alat.merek);
+    printf("Model: "); scanf(" %[^\n]", alat.model);
+    printf("Tahun: "); scanf("%u", &alat.tahun);
+    printf("Jumlah: "); scanf("%u", &alat.jumlah);
+
+    fprintf(fp, "%u,%s,%s,%s,%u,%u\n", alat.id, alat.nama, alat.merek, alat.model, alat.tahun, alat.jumlah);
+    fclose(fp);
+
+    printf("Alat yang baru berhasil ditambahkan!\n");
+}
+// Bagian ini berfungsi untuk mengedit data alat yang diliat dari ID
+// dan membuat file sementara (temp.txt) untuk menyimpan hasil edit, dan mengganti file lama dengan file baru
