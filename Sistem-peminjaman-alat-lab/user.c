@@ -32,3 +32,20 @@ void pinjam_alat(const char *username) {
     scanf("%u", &jumlah);
 
     // Membaca isi file alat baris per baris
+    while (fscanf(fp, "%u,%[^,],%[^,],%[^,],%u,%u\n",
+       &alat.id, alat.nama, alat.merek, alat.model, &alat.tahun, &alat.jumlah) == 6) {
+
+       // Mengecek apakah ID cocok dan stok mencukupi, maka lakukan peminjaman dan mengurangi stok di file alat.txt
+       if (alat.id == id && alat.jumlah >= jumlah)
+       {
+           alat.jumlah -= jumlah;
+
+           // Catat transaksi ke file peminjaman.txt
+           fprintf(pinjam, "%s %u %s %u\n", username, alat.id, alat.nama, jumlah);
+           printf("Peminjaman berhasil!\n");
+           // Menandai bahwa alat ditemukan dan proses berhasil
+           found = 1;
+        }
+        // Menulis data alat yang sudah diperbarui ataupun tidak ke file sementara
+        fprintf(temp, "%u,%s,%s,%s,%u,%u\n", alat.id, alat.nama, alat.merek, alat.model, alat.tahun, alat.jumlah);
+    }
