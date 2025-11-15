@@ -83,3 +83,20 @@ void lihat_pinjaman(const char *username) {
 
     fclose(fp);
 }
+
+// Fungsi untuk mengembalikan alat yang sebelumnya dipinjam oleh user
+void kembalikan_alat(const char *username) {
+    // Membuka file peminjaman, file sementara, file alat, dan file alat sementara
+    FILE *fp = fopen("peminjaman.txt", "r");
+    FILE *temp = fopen("temp.txt", "w");
+    FILE *alatFile = fopen("alat.txt", "r");
+    FILE *alatTemp = fopen("alatTemp.txt", "w");
+
+    // Mengecek apakah semua file berhasil dibuka
+    if (!fp || !temp || !alatFile || !alatTemp) {
+        printf("Gagal membuka file!\n");
+        return;
+    }
+
+    unsigned int id;
+    // Meminta user untuk menginput ID alat yang ingin dikembalikan
