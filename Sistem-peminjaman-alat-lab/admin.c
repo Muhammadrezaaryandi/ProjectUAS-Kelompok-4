@@ -32,3 +32,20 @@ void tampilkan_alat()
     while (fscanf(fp, "%u,%[^,],%[^,],%[^,],%u,%u\n", 
         &alat.id, alat.nama, alat.merek, alat.model, &alat.tahun, &alat.jumlah) == 6)
         {
+         //Mengeprint satu baris data alat dengan format yang udah diatur biar rapi
+        printf("%-5u %-20s %-15s %-15s %-7u %u\n",
+               alat.id, alat.nama, alat.merek, alat.model, alat.tahun, alat.jumlah);
+        }
+    // Nutup file karena udah selesai dipake, biar rapi dan aman
+    fclose(fp);
+}
+// Bagian ini berfungsi untuk menambahkan data alat baru ke dalam file "alat.txt"
+void tambah_alat()
+{
+    FILE *fp = fopen("alat.txt", "a");
+    if (!fp) 
+    {
+        printf("Tidak dapat membuka file!\n");
+        return;
+    }
+    //Variabel struct ini dipakai untuk menampung sementara semua data alat yang user input sebelum disimpan ke fil
