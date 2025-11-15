@@ -49,3 +49,20 @@ void pinjam_alat(const char *username) {
         // Menulis data alat yang sudah diperbarui ataupun tidak ke file sementara
         fprintf(temp, "%u,%s,%s,%s,%u,%u\n", alat.id, alat.nama, alat.merek, alat.model, alat.tahun, alat.jumlah);
     }
+
+    if (!found) {
+        prinf("Alat tidak ditemukan atau stok kurang!\n");
+    }
+
+    // Menutup file dan mengganti file lama dengan file baru
+    fclose(fp);
+    fclose(temp);
+    fclose(pinjam);
+    remove("alat.txt");
+    rename("temp.txt", "alat.txt");
+}
+
+// Fungsi untuk menampilkan alat yang sedang dipinjam user
+void lihat_pinjaman(const char *username) {
+    // Membuka file peminjaman.txt untuk dibaca
+    FILE *fp = fopen("Peminjaman.txt", "r");
