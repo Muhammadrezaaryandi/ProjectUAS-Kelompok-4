@@ -1,0 +1,10 @@
+1,Komputer,Dell,OptiPlex 3090,2022,30
+2,Monitor,Samsung,LF22T350,2022,30
+3,Proyektor,Epson,EB-X51,2021,12
+4,Printer,HP,LaserJet M110w,2020,12
+5,Network,TP-Link,TL-SG1024,2021,22
+6,Wireless,MikroTik,RB951Ui-2HnD,2022,21
+7,UPS,APC,Easy UPS 1000VA,2023,31
+8,Keyboard,Logitech,K120,2023,35
+9,Mouse,Logitech,M90,2023,35
+10,Webcam,Logitech,C270,2022,5
