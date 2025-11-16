@@ -17,7 +17,7 @@ int hitung_baris_file(char *namaFile)
 void tampilkan_alat()
 {
     FILE *fp = fopen("alat.txt", "r");
-    if(!fp)
+    if (!fp)
     {
         printf("Belum ada data alat.\n");
         return;
@@ -133,6 +133,7 @@ void hapus_alat()
     scanf("%u", &target);
     
     Alat alat;
+    //Mengecek apakah ID yang kita masukkan sesuai dengan target
     int found = 0;
     while 
     (fscanf(fp, "%u,%[^,],%[^,],%[^,],%u,%u\n",
@@ -152,7 +153,7 @@ void hapus_alat()
     if (found) printf("Alat berhasil dihapus!\n");
     else printf("ID tidak ditemukan!\n");
     }
-
+    
 // Bagian ini menampilkan daftar menu utama untuk admin
 void menu_admin() 
 {
@@ -169,10 +170,20 @@ void menu_admin()
         printf("0. Logout\n");
         printf("Pilih: ");
         status_baca = scanf("%d", &pilih);
-
+        //Mengecek apakah input valid berupa angka
         if (status_baca == 1) 
         {
             switch(pilih) {
                 case 1: tampilkan_alat(); break;
                 case 2: tambah_alat(); break;
                 case 3: edit_alat(); break;
+                case 4: hapus_alat(); break;
+                case 0: printf("Logout...\n"); break;
+                default: printf("Pilihan tidak valid!\n");
+            }
+        } else {
+            printf("Harap masukkan angka!\n");
+            while (getchar() != '\n');
+        }
+    } while (pilih != 0); 
+}
