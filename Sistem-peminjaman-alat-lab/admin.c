@@ -144,7 +144,7 @@ void hapus_alat()
         else
             found = 1;
     }
-
+    //Menutup file, menghapus file lama, dan mengganti dengan file yang sudah diperbarui
     fclose(fp);
     fclose(temp);
     remove("alat.txt");
