@@ -70,6 +70,7 @@ void lihat_pinjaman(const char *username) {
         printf("Belum ada data peminjaman.\n");
         return;
     }
+
     Peminjaman p;
     printf("\n=== ALAT YANG DIPINJAM (%s) ===\n",  username);
 
@@ -99,3 +100,20 @@ void kembalikan_alat(const char *username) {
 
     unsigned int id;
     // Meminta user untuk menginput ID alat yang ingin dikembalikan
+    printf("Masukkan ID alat: ");
+    scanf("%u", &id);
+
+    // Struct untuk menyimpan data peminjaman dan data alat
+    peminjaman p;
+    Alat alat;
+
+    int found = 0;
+    unsigned int jumlahKembali = 0;
+
+    // Menghapus data peminjaman sesuai ID alat yang dipinjam
+    while (fscanf(fp, "%s %u %s %u", p.username, &p.idAlat, p.namaAlat, &p.jumlahPinjam) == 4) {
+        // Mengecek apakah data milik user dan ID alat cocok, maka ambil jumlah yang dikembalikan
+        if (strcmp(p.username, username) == 0 && p.idAlat == id) {
+            jumlahKembali = p.jumlahPinjam;
+            found = 1;
+        } else {
