@@ -100,7 +100,7 @@ void edit_alat()
             printf("Nama: "); scanf(" %[^\n]", alat.nama);
             printf("Merek: "); scanf(" %[^\n]", alat.merek);
             printf("Model: "); scanf(" %[^\n]", alat.model);
-             printf("Tahun: "); scanf("%u", &alat.tahun);
+            printf("Tahun: "); scanf("%u", &alat.tahun);
             printf("Jumlah: "); scanf("%u", &alat.jumlah);
             found = 1;
         }
