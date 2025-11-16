@@ -27,3 +27,21 @@ int main(int argc, char *argv[]) {
     }
 
     // Tampilan setelah login berhasil
+    printf("\n");
+    garis();
+    printf(" SELAMAT DATANG, %s (%s)\n", argv[1], role);
+    garis();
+
+    // Routing menu berdasarkan role user, admin atau user
+    if (strcmp(role, "admin") == 0) {
+        menu_admin(); 
+    } else if (strcmp(role, "user") == 0) {
+        menu_user(argv[1]); 
+    }
+    
+    garis();
+    printf("Terima kasih telah menggunakan sistem ini!\n");
+    garis();
+
+    return 0;
+}
