@@ -24,7 +24,7 @@ void tampilkan_alat()
     }
 
     Alat alat;
-    printf("\n=== DAFTAR ALAT LAB ===\n");
+    printf("\n=========================== DAFTAR ALAT LAB =============================\n");
     printf("%-5s %-20s %-15s %-15s %-7s %s\n", 
            "ID", "Nama", "Merek", "Model", "Tahun", "Jumlah");
     printf("========================================================================\n");
