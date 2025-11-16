@@ -159,7 +159,8 @@ void menu_admin()
     int pilih = -1;
     int status_baca; 
 
-    do {
+    do 
+    {
         printf("\n=== MENU ADMIN ===\n");
         printf("1. Tampilkan alat\n");
         printf("2. Tambah alat\n");
@@ -167,4 +168,11 @@ void menu_admin()
         printf("4. Hapus alat\n");
         printf("0. Logout\n");
         printf("Pilih: ");
-        
+        status_baca = scanf("%d", &pilih);
+
+        if (status_baca == 1) 
+        {
+            switch(pilih) {
+                case 1: tampilkan_alat(); break;
+                case 2: tambah_alat(); break;
+                case 3: edit_alat(); break;
