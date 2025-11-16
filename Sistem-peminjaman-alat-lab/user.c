@@ -51,7 +51,7 @@ void pinjam_alat(const char *username) {
     }
 
     if (!found) {
-        prinf("Alat tidak ditemukan atau stok kurang!\n");
+        printf("Alat tidak ditemukan atau stok kurang!\n");
     }
 
     // Menutup file dan mengganti file lama dengan file baru
