@@ -100,3 +100,20 @@ void edit_alat()
             printf("Nama: "); scanf(" %[^\n]", alat.nama);
             printf("Merek: "); scanf(" %[^\n]", alat.merek);
             printf("Model: "); scanf(" %[^\n]", alat.model);
+             printf("Tahun: "); scanf("%u", &alat.tahun);
+            printf("Jumlah: "); scanf("%u", &alat.jumlah);
+            found = 1;
+        }
+        fprintf(temp, "%u,%s,%s,%s,%u,%u\n", alat.id, alat.nama, alat.merek, alat.model, alat.tahun, alat.jumlah);
+    }
+    //Menutup file asli dan menutup file sementara
+    fclose(fp);
+    fclose(temp);
+    //Menhapus file lama dan mengganti file sementara jadi file utama
+    remove("alat.txt");
+    rename("temp.txt", "alat.txt");
+
+    if (found) printf("Data alat berhasil diperbarui!\n");
+    else printf("ID alat tidak ditemukan!\n");
+}
+// Bagian ini berfungsi untuk menghapus data alat dari file "alat.txt" berdasarkan ID alat
