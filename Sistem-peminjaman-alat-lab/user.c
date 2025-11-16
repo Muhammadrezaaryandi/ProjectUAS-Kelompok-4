@@ -143,3 +143,20 @@ void kembalikan_alat(const char *username) {
         rename("alatTemp.txt", "alat.txt");
 
         // Mengecek apakah alat ditemukan
+        if (found)
+            printf("Alat telah dikembalikan!\n");
+        else
+            printf("Tidak ada data peminjaman dengan ID tersebut!\n");
+}
+
+// Menu utama untuk user 
+void menu_user(const char *username) {
+    int pilih;
+    int status_baca;
+
+    do {
+        // Menampilkan daftar menu
+        printf("\n=== MENU USER (%s) ===\n", username);
+        printf("1. Lihat alat tersedia\n");
+        printf("1. Pinjam alat\n");
+        printf("3. Lihat alat yang dipinjam\n");
