@@ -61,7 +61,6 @@ void tambah_alat()
 
     fprintf(fp, "%u,%s,%s,%s,%u,%u\n", alat.id, alat.nama, alat.merek, alat.model, alat.tahun, alat.jumlah);
     fclose(fp);
-
     printf("Alat yang baru berhasil ditambahkan!\n");
 }
 // Bagian ini berfungsi untuk mengedit data alat yang diliat dari ID
@@ -118,7 +117,8 @@ void edit_alat()
 }
 // Bagian ini berfungsi untuk menghapus data alat dari file "alat.txt" berdasarkan ID alat
 // Yang tidak kehapus disalin ke temp.txt, file lama dihapus, dan temp.txt diganti jadi "alat.txt"
-void hapus_alat() {
+void hapus_alat() 
+{
     FILE *fp = fopen("alat.txt", "r");
     FILE *temp = fopen("temp.txt", "w");
 
@@ -134,3 +134,20 @@ void hapus_alat() {
     
     Alat alat;
     int found = 0;
+    while 
+    (fscanf(fp, "%u,%[^,],%[^,],%[^,],%u,%u\n",
+    &alat.id, alat.nama, alat.merek, alat.model, &alat.tahun, &alat.jumlah) == 6)
+    {
+        if (alat.id != target)
+        fprintf(temp, "%u,%s,%s,%s,%u,%u\n", alat.id, alat.nama, alat.merek, alat.model, alat.tahun, alat.jumlah);
+        else
+            found = 1;
+    }
+
+    fclose(fp);
+    fclose(temp);
+    remove("alat.txt");
+    rename("temp.txt", "alat.txt");
+
+    if (found) printf("Alat berhasil dihapus!\n");
+    else printf("ID tidak ditemukan!\n");
