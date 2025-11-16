@@ -117,3 +117,20 @@ void kembalikan_alat(const char *username) {
             jumlahKembali = p.jumlahPinjam;
             found = 1;
         } else {
+            fprintf(temp, "%s %u %s %u\n", p.username, p.idAlat, p.namaAlat, p.jumlahPinjam);
+        }
+    }
+
+    // Menutup file dan mengganti file lama dengan file baru
+    fclose(fp);
+    fclose(temp);
+    remove("pemminjaman.txt");
+    rename("temp.txt", "peminjaman.txt");
+
+    // Menambah stok kembali ke file alat.txt
+    while (fscanf(alatFile, "%u,%[^,],%[^,],%[^,],%u,%u\n", 
+        &alat.id, alat.nama, alat.merek, alat.model, &alat.tahun, &alat.jumlah) == 6) {
+        if (alat.id == id) {
+            alat.jumlah += jumlahKembali;
+        }
+        fprintf(alatTemp, "%u,%s,%s,%s,%u,%u\n", alat.id, alat.nama, alat.merek, alat.model, alat.tahun, alat.jumlah);
