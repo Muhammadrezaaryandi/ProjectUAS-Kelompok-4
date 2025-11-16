@@ -27,7 +27,7 @@ void tampilkan_alat()
     printf("\n=========================== DAFTAR ALAT LAB =============================\n");
     printf("%-5s %-20s %-15s %-15s %-7s %s\n", 
            "ID", "Nama", "Merek", "Model", "Tahun", "Jumlah");
-    printf("========================================================================\n");
+    printf("=========================================================================\n");
 
     while (fscanf(fp, "%u,%[^,],%[^,],%[^,],%u,%u\n", 
         &alat.id, alat.nama, alat.merek, alat.model, &alat.tahun, &alat.jumlah) == 6)
