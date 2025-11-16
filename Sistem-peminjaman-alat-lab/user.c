@@ -104,7 +104,7 @@ void kembalikan_alat(const char *username) {
     scanf("%u", &id);
 
     // Struct untuk menyimpan data peminjaman dan data alat
-    peminjaman p;
+    Peminjaman p;
     Alat alat;
 
     int found = 0;
@@ -134,3 +134,12 @@ void kembalikan_alat(const char *username) {
             alat.jumlah += jumlahKembali;
         }
         fprintf(alatTemp, "%u,%s,%s,%s,%u,%u\n", alat.id, alat.nama, alat.merek, alat.model, alat.tahun, alat.jumlah);
+    }
+
+        // Menutup file dan mengganti file lama dengan file baru
+        fclose(alatFile);
+        fclose(alatTemp);
+        remove("alat.txt");
+        rename("alatTemp.txt", "alat.txt");
+
+        // Mengecek apakah alat ditemukan
