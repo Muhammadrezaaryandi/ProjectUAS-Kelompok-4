@@ -117,3 +117,20 @@ void edit_alat()
     else printf("ID alat tidak ditemukan!\n");
 }
 // Bagian ini berfungsi untuk menghapus data alat dari file "alat.txt" berdasarkan ID alat
+// Yang tidak kehapus disalin ke temp.txt, file lama dihapus, dan temp.txt diganti jadi "alat.txt"
+void hapus_alat() {
+    FILE *fp = fopen("alat.txt", "r");
+    FILE *temp = fopen("temp.txt", "w");
+
+    if (!fp || !temp) 
+    {
+        printf("Tidak dapat membuka file!\n");
+        return;
+    }
+    //Meminta user memasukkan ID alat yang mau dihapus
+    unsigned int target;
+    printf("Masukkan ID alat: ");
+    scanf("%u", &target);
+    
+    Alat alat;
+    int found = 0;
