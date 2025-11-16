@@ -158,5 +158,22 @@ void menu_user(const char *username) {
         // Menampilkan daftar menu
         printf("\n=== MENU USER (%s) ===\n", username);
         printf("1. Lihat alat tersedia\n");
-        printf("1. Pinjam alat\n");
+        printf("2. Pinjam alat\n");
         printf("3. Lihat alat yang dipinjam\n");
+        printf("4. Kembalikan alat\n");
+        printf("0. Logout\n");
+        printf("Pilih: ");
+
+        // Memastikan user memasukkan angka
+        status_baca = scanf("%d", &pilih);
+
+        // Jika input valid maka menu akan dilanjutkan 
+        if (status_baca == 1) {
+            switch (pilih) {
+                case 1: lihat_alat(); break;
+                case 2: pinjam_alat(username); break;
+                case 3: lihat_pinjaman(username); break;
+                case 4: kembalikan_alat(username); break;
+                case 0: printf("Logout...\n"); break;
+                default: printf("Pilihan tidak valid!\n");
+            }
