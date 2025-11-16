@@ -177,3 +177,12 @@ void menu_user(const char *username) {
                 case 0: printf("Logout...\n"); break;
                 default: printf("Pilihan tidak valid!\n");
             }
+        } else {
+            // Jika input berupa huruf, maka input tidak valid
+            printf("Harap masukkan angka!\n");
+            // Membersihkan buffer
+            while (getchar() != '\n');
+            pilih = -1;
+        }
+    } while (pilih != 0);
+}
