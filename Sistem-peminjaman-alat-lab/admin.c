@@ -151,3 +151,20 @@ void hapus_alat()
 
     if (found) printf("Alat berhasil dihapus!\n");
     else printf("ID tidak ditemukan!\n");
+    }
+
+// Bagian ini menampilkan daftar menu utama untuk admin
+void menu_admin() 
+{
+    int pilih = -1;
+    int status_baca; 
+
+    do {
+        printf("\n=== MENU ADMIN ===\n");
+        printf("1. Tampilkan alat\n");
+        printf("2. Tambah alat\n");
+        printf("3. Edit alat\n");
+        printf("4. Hapus alat\n");
+        printf("0. Logout\n");
+        printf("Pilih: ");
+        
