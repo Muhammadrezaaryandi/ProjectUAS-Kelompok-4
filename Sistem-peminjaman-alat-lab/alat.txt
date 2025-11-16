@@ -1,4 +1,4 @@
-1,Komputer,Dell,OptiPlex 3090,2022,30
+1,Komputer,Dell,OptiPlex 3090,2022,32
 2,Monitor,Samsung,LF22T350,2022,30
 3,Proyektor,Epson,EB-X51,2021,12
 4,Printer,HP,LaserJet M110w,2020,12

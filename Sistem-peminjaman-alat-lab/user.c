@@ -65,7 +65,7 @@ void pinjam_alat(const char *username) {
 // Fungsi untuk menampilkan alat yang sedang dipinjam user
 void lihat_pinjaman(const char *username) {
     // Membuka file peminjaman.txt untuk dibaca
-    FILE *fp = fopen("Peminjaman.txt", "r");
+    FILE *fp = fopen("peminjaman.txt", "r");
     if (!fp) {
         printf("Belum ada data peminjaman.\n");
         return;
@@ -124,7 +124,7 @@ void kembalikan_alat(const char *username) {
     // Menutup file dan mengganti file lama dengan file baru
     fclose(fp);
     fclose(temp);
-    remove("pemminjaman.txt");
+    remove("peminjaman.txt");
     rename("temp.txt", "peminjaman.txt");
 
     // Menambah stok kembali ke file alat.txt
